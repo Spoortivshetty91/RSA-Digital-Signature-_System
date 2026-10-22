@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Digital Signature</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>RSA Digital Signature System</h1>
+        <p>Cryptography and Network Security Project</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>1. Generate RSA Keys</h2>
+            <p>Generate a private and public key pair before signing.</p>
+            <button id="generateBtn">Generate RSA Keys</button>
+            <p id="keyStatus" class="status"></p>
+
+            <label for="publicKey">RSA Public Key</label>
+            <textarea id="publicKey" rows="5"
+                placeholder="Your public key will appear here"></textarea>
+        </section>
+
+        <section class="card">
+            <h2>2. Sign a Message</h2>
+
+            <label for="message">Enter your message</label>
+            <textarea id="message" rows="4"
+                placeholder="Enter a message to sign...">Hello Bob</textarea>
+
+            <button id="signBtn">Sign Message</button>
+
+            <label for="messageHash">SHA-256 Message Hash</label>
+            <textarea id="messageHash" rows="2" readonly></textarea>
+
+            <label for="signature">Digital Signature (Base64)</label>
+            <textarea id="signature" rows="5"
+                placeholder="Your digital signature will appear here"></textarea>
+
+            <p id="signStatus" class="status"></p>
+        </section>
+
+        <section class="card">
+            <h2>3. Verify the Signature</h2>
+            <p>
+                Verify the signature against the message and public key.
+                You can change the message to test tampering.
+            </p>
+
+            <button id="verifyBtn">Verify Signature</button>
+            <div id="verifyResult" class="result">
+                Verification result will appear here.
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        RSA • SHA-256 • RSA-PSS
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
