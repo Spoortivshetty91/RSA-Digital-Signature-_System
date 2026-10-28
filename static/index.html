@@ -4,64 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSA Digital Signature</title>
+    <title>RSA Digital Signature System</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <header>
-        <h1>RSA Digital Signature System</h1>
-        <p>Cryptography and Network Security Project</p>
-    </header>
 
-    <main>
-        <section class="card">
-            <h2>1. Generate RSA Keys</h2>
-            <p>Generate a private and public key pair before signing.</p>
-            <button id="generateBtn">Generate RSA Keys</button>
-            <p id="keyStatus" class="status"></p>
+<header>
+    <h1>RSA Digital Signature System</h1>
+    <p>Cryptography and Network Security Project</p>
+</header>
 
-            <label for="publicKey">RSA Public Key</label>
-            <textarea id="publicKey" rows="5"
-                placeholder="Your public key will appear here"></textarea>
-        </section>
+<main>
 
-        <section class="card">
-            <h2>2. Sign a Message</h2>
+    <section class="card">
+        <h2>1. Generate RSA Keys</h2>
+        <p>Generate a private and public key pair before signing.</p>
 
-            <label for="message">Enter your message</label>
-            <textarea id="message" rows="4"
-                placeholder="Enter a message to sign...">Hello Bob</textarea>
+        <button id="generateBtn">Generate RSA Keys</button>
+        <p id="keyStatus" class="status"></p>
 
-            <button id="signBtn">Sign Message</button>
+        <label for="publicKey">RSA Public Key</label>
+        <textarea id="publicKey" rows="5"
+            placeholder="Your public key will appear here"></textarea>
+    </section>
 
-            <label for="messageHash">SHA-256 Message Hash</label>
-            <textarea id="messageHash" rows="2" readonly></textarea>
+    <section class="card">
+        <h2>2. Sign a Message</h2>
 
-            <label for="signature">Digital Signature (Base64)</label>
-            <textarea id="signature" rows="5"
-                placeholder="Your digital signature will appear here"></textarea>
+        <label for="message">Enter Your Message</label>
+        <textarea id="message" rows="4"
+            placeholder="Enter a message to sign">Hello Bob</textarea>
 
-            <p id="signStatus" class="status"></p>
-        </section>
+        <button id="signBtn">Sign Message</button>
 
-        <section class="card">
-            <h2>3. Verify the Signature</h2>
-            <p>
-                Verify the signature against the message and public key.
-                You can change the message to test tampering.
-            </p>
+        <label for="messageHash">SHA-256 Message Hash</label>
+        <textarea id="messageHash" rows="2" readonly
+            placeholder="Message hash will appear here"></textarea>
 
-            <button id="verifyBtn">Verify Signature</button>
-            <div id="verifyResult" class="result">
-                Verification result will appear here.
-            </div>
-        </section>
-    </main>
+        <label for="signature">Digital Signature (Base64)</label>
+        <textarea id="signature" rows="5"
+            placeholder="Digital signature will appear here"></textarea>
 
-    <footer>
-        RSA • SHA-256 • RSA-PSS
-    </footer>
+        <p id="signStatus" class="status"></p>
+    </section>
 
-    <script src="/static/script.js"></script>
+    <section class="card">
+        <h2>3. Verify the Signature</h2>
+        <p>Verify the original message using the public key.</p>
+
+        <button id="verifyBtn">Verify Signature</button>
+
+        <div id="verifyResult" class="result">
+            Verification result will appear here.
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>4. Sender — Export Message Package</h2>
+        <p>Prepare a package containing the message, signature and public key.</p>
+
+        <button id="exportBtn">Prepare Message Package</button>
+
+        <label for="senderPackage">Message Package (JSON)</label>
+        <textarea id="senderPackage" rows="8" readonly
+            placeholder="Sign your message to create a package"></textarea>
+
+        <button id="copyPackageBtn">Copy Package</button>
+        <p id="exportStatus" class="status"></p>
+    </section>
+
+    <section class="card">
+        <h2>5. Receiver — Import and Verify</h2>
+        <p>Paste the sender's package to verify the received message.</p>
+
+        <label for="receiverPackage">Received Message Package (JSON)</label>
+        <textarea id="receiverPackage" rows="8"
+            placeholder="Paste the sender's JSON package here"></textarea>
+
+        <button id="receiveVerifyBtn">Verify Received Message</button>
+
+        <label for="receivedMessage">Received Message</label>
+        <textarea id="receivedMessage" rows="3" readonly
+            placeholder="Received message will appear here"></textarea>
+
+        <div id="receiverResult" class="result">
+            Waiting for a message package.
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    RSA Digital Signature System | RSA-PSS | SHA-256
+</footer>
+
+<script src="/static/script.js"></script>
 </body>
 </html>

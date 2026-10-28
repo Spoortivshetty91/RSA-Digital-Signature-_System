@@ -1,117 +1,200 @@
 
+/* Reset */
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f1f5f9;
-    color: #1e293b;
+html {
+    scroll-behavior: smooth;
 }
 
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* Header */
 header {
     background: #142d4e;
-    color: white;
+    color: #ffffff;
     text-align: center;
-    padding: 28px 16px;
+    padding: 32px 20px;
 }
 
 header h1 {
-    margin: 0 0 10px;
+    margin: 0 0 8px;
+    font-size: 30px;
 }
 
 header p {
     margin: 0;
     color: #dbeafe;
+    font-size: 16px;
 }
 
+/* Main container */
 main {
-    width: min(900px, 92%);
-    margin: 30px auto;
+    width: 92%;
+    max-width: 900px;
+    margin: 32px auto;
 }
 
+/* Individual sections */
 .card {
-    background: white;
-    padding: 24px;
-    margin-bottom: 22px;
+    display: block;
+    width: 100%;
+    background: #ffffff;
+    padding: 26px;
+    margin-bottom: 24px;
     border-radius: 12px;
     box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
 }
 
-h2 {
+.card h2 {
     color: #173b67;
-    margin-top: 0;
+    font-size: 22px;
+    margin: 0 0 12px;
 }
 
+.card p {
+    margin-top: 8px;
+}
+
+/* Form labels */
 label {
     display: block;
-    margin: 18px 0 8px;
+    width: 100%;
+    margin: 20px 0 8px;
     font-weight: bold;
+    color: #334155;
 }
 
+/* Text areas */
 textarea {
     display: block;
     width: 100%;
+    max-width: 100%;
+    min-height: 65px;
     padding: 12px;
     border: 1px solid #cbd5e1;
     border-radius: 7px;
+    background: #ffffff;
+    color: #1e293b;
     font-family: Consolas, monospace;
     font-size: 13px;
+    line-height: 1.5;
     resize: vertical;
     overflow-wrap: anywhere;
 }
 
+textarea:focus {
+    outline: none;
+    border-color: #1765b5;
+    box-shadow: 0 0 0 3px rgba(23, 101, 181, 0.12);
+}
+
+textarea[readonly] {
+    background: #f8fafc;
+}
+
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Buttons */
 button {
-    margin-top: 16px;
-    padding: 12px 18px;
+    display: inline-block;
+    margin: 16px 8px 0 0;
+    padding: 12px 20px;
     background: #1765b5;
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 7px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
+    transition: background 0.2s ease;
 }
 
 button:hover {
     background: #104c8b;
 }
 
-.status {
-    font-weight: bold;
-    overflow-wrap: anywhere;
+button:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
 }
 
+/* Status messages */
+.status {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+    color: #334155;
+}
+
+/* Verification result */
 .result {
+    display: block;
+    width: 100%;
     padding: 15px;
     margin-top: 18px;
-    background: #f1f5f9;
     border-radius: 8px;
+    background: #f1f5f9;
     overflow-wrap: anywhere;
 }
 
 .result.success {
     background: #dcfce7;
     color: #166534;
+    border: 1px solid #86efac;
 }
 
 .result.failure {
     background: #fee2e2;
     color: #991b1b;
+    border: 1px solid #fca5a5;
 }
 
+/* Footer */
 footer {
+    background: #142d4e;
+    color: #dbeafe;
     text-align: center;
-    padding: 22px;
-    color: #64748b;
+    padding: 22px 15px;
+    font-size: 14px;
 }
 
+/* Mobile layout */
 @media (max-width: 600px) {
-    .card {
-        padding: 17px;
+    header {
+        padding: 25px 15px;
     }
 
     header h1 {
         font-size: 24px;
+    }
+
+    main {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .card {
+        padding: 18px;
+        margin-bottom: 18px;
+    }
+
+    .card h2 {
+        font-size: 19px;
+    }
+
+    button {
+        max-width: 100%;
+        padding: 11px 15px;
     }
 }
